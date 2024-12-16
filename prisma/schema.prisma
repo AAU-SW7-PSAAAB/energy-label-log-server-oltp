@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("URL_FIRST")
+}
+
+// FACT SCHEMA
+model Fact {
+  id                Int     @id @default(autoincrement()) @db.UnsignedInt
+  score             Int     @db.UnsignedInt
+  status_code       Int     @db.UnsignedInt
+  error_message     String? @db.TinyText
+  extension_version String  @db.TinyText
+  plugin_name       String  @db.TinyText
+  plugin_version    String  @db.TinyText
+  browser_name      String  @db.TinyText
+  browser_version   String  @db.TinyText
+  domain            String  @db.TinyText
+  path              String  @db.TinyText
+}
